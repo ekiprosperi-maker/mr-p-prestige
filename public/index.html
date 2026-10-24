@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Discover luxury watches and necklaces at Mr P Prestige. Browse our collection and order directly on WhatsApp.">
+  <title>Mr P Prestige | Timeless Luxury</title>
+  <style>
+    :root {
+      --gold: #d6b46a;
+      --gold-light: #f1d99b;
+      --black: #090909;
+      --panel: #151515;
+      --muted: #aaa;
+      --white: #f8f5ee;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--black); color: var(--white);
+      font-family: Arial, Helvetica, sans-serif; line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .announcement {
+      background: var(--gold); color: #17120a; text-align: center;
+      padding: 8px 12px; font-size: 12px; letter-spacing: 1px;
+    }
+    header {
+      position: sticky; top: 0; z-index: 10; background: #0c0c0c;
+      border-bottom: 1px solid #29251c;
+    }
+    .nav {
+      max-width: 1180px; margin: auto; padding: 16px 22px;
+      display: flex; justify-content: space-between; align-items: center; gap: 18px;
+    }
+    .brand { color: var(--gold); font-family: Georgia, serif; font-size: 23px; font-weight: bold; }
+    .brand small { display: block; color: #ddd; font: 9px Arial, sans-serif; letter-spacing: 4px; text-align: center; }
+    .navlinks { display: flex; gap: 24px; align-items: center; font-size: 13px; }
+    .navlinks a:hover { color: var(--gold); }
+    .gold-button {
+      display: inline-block; border: 0; background: var(--gold); color: #100e09;
+      padding: 12px 18px; font-weight: bold; border-radius: 2px;
+    }
+    .gold-button:hover { background: var(--gold-light); }
+    .hero {
+      min-height: 520px; display: grid; place-items: center; text-align: center;
+      padding: 75px 22px;
+      background:
+        radial-gradient(ellipse at 50% 35%, #4a371a 0%, #1c1710 27%, #090909 70%);
+      border-bottom: 1px solid #2b2417;
+    }
+    .eyebrow { color: var(--gold); letter-spacing: 4px; font-size: 11px; text-transform: uppercase; }
+    h1 { font: 500 clamp(42px, 7vw, 78px)/1.08 Georgia, serif; margin: 18px 0; }
+    h1 span { color: var(--gold); font-style: italic; }
+    .hero p { max-width: 570px; margin: 0 auto 28px; color: #c9c4b9; }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .outline-button {
+      display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+      padding: 11px 18px;
+    }
+    .benefits {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      max-width: 1050px; margin: auto; padding: 28px 20px; gap: 20px;
+      border-bottom: 1px solid #26221b;
+    }
+    .benefit { text-align: center; color: #d8d2c7; font-size: 13px; }
+    .benefit strong { display: block; color: var(--gold); font: 18px Georgia, serif; }
+    section { scroll-margin-top: 85px; }
+    .shop { max-width: 1180px; padding: 70px 22px; margin: auto; }
+    .section-heading { text-align: center; margin-bottom: 30px; }
+    .section-heading h2 { font: 36px Georgia, serif; margin: 8px 0; }
+    .section-heading p { color: var(--muted); font-size: 14px; }
+    .tools { display: flex; gap: 12px; margin: 26px 0; flex-wrap: wrap; }
+    .tools input {
+      flex: 1; min-width: 180px; background: #141414; border: 1px solid #39352c;
+      color: white; padding: 12px 14px; border-radius: 2px;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+    .filter {
+      background: transparent; color: #d6d0c4; border: 1px solid #39352c;
+      padding: 8px 14px; font-size: 12px;
+    }
+    .filter.active, .filter:hover { background: var(--gold); color: #111; border-color: var(--gold); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .product { background: var(--panel); border: 1px solid #292929; min-width: 0; }
+    .product-image {
+      width: 100%; aspect-ratio: 4 / 4.2; object-fit: cover; display: block;
+      background: linear-gradient(140deg, #292318, #111);
+    }
+    .image-placeholder {
+      aspect-ratio: 4 / 4.2; display: grid; place-items: center; text-align: center;
+      color: var(--gold); font: 22px Georgia, serif; padding: 20px;
+      background: radial-gradient(ellipse, #3a2c17, #171512 65%, #101010);
+    }
+    .product-info { padding: 17px; }
+    .product-category { color: var(--gold); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+    .product h3 { font: 22px Georgia, serif; margin: 5px 0; }
+    .product p { color: #b8b3aa; font-size: 12px; min-height: 38px; margin: 5px 0 12px; }
+    .price { color: var(--gold-light); font-weight: bold; margin-bottom: 14px; }
+    .product .gold-button { width: 100%; text-align: center; font-size: 13px; }
+    .empty { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted); }
+    .story {
+      padding: 65px 22px; text-align: center;
+      background: linear-gradient(120deg, #17140e, #0b0b0b);
+      border-top: 1px solid #2d2517; border-bottom: 1px solid #2d2517;
+    }
+    .story-inner { max-width: 720px; margin: auto; }
+    .story h2 { font: 36px Georgia, serif; }
+    .story p { color: #c3bdb1; }
+    footer { padding: 38px 22px; text-align: center; color: #aaa; font-size: 12px; }
+    footer .brand { margin-bottom: 14px; }
+    .floating-whatsapp {
+      position: fixed; bottom: 20px; right: 18px; z-index: 20;
+      border-radius: 30px; padding: 12px 17px; background: #25d366;
+      color: #062b13; font-weight: bold; box-shadow: 0 4px 20px #0008;
+    }
+    @media (max-width: 760px) {
+      .nav { padding: 13px 16px; }
+      .navlinks { gap: 12px; font-size: 12px; }
+      .navlinks .contact-link { display: none; }
+      .brand { font-size: 19px; }
+      .hero { min-height: 460px; }
+      .benefits { gap: 8px; padding: 22px 10px; }
+      .benefit { font-size: 11px; }
+      .benefit strong { font-size: 15px; }
+      .shop { padding: 48px 15px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .product-info { padding: 12px; }
+      .product h3 { font-size: 18px; }
+      .product p { min-height: 55px; }
+      .product .gold-button { padding: 10px 5px; font-size: 11px; }
+      .section-heading h2 { font-size: 30px; }
+    }
+    @media (max-width: 390px) {
+      .navlinks { gap: 8px; }
+      .navlinks a { font-size: 11px; }
+      .grid { gap: 9px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">MR P PRESTIGE · TIMELESS STYLE, EVERYDAY ELEGANCE</div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#">MR P PRESTIGE<small>LUXURY COLLECTION</small></a>
+      <div class="navlinks">
+        <a href="#">Home</a>
+        <a href="#shop">Shop</a>
+        <a class="contact-link" href="#about">Our Story</a>
+        <a href="https://wa.me/2348081040811" target="_blank" rel="noopener">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">The art of refined living</div>
+        <h1>Wear your<br><span>prestige.</span></h1>
+        <p>Discover statement watches and elegant necklaces chosen for those who appreciate detail, confidence and timeless style.</p>
+        <div class="hero-actions">
+          <a class="gold-button" href="#shop">Explore the collection</a>
+          <a class="outline-button" href="https://wa.me/2348081040811?text=Hello%20Mr%20P%20Prestige%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">Chat with us</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="benefits">
+      <div class="benefit"><strong>Timeless Design</strong>Styles that stand out</div>
+      <div class="benefit"><strong>For Him & Her</strong>Accessories for everyone</div>
+      <div class="benefit"><strong>Personal Service</strong>Order directly on WhatsApp</div>
+    </div>
+
+    <section class="shop" id="shop">
+      <div class="section-heading">
+        <div class="eyebrow">The collection</div>
+        <h2>Find Your Signature</h2>
+        <p>Explore our watches and necklaces. Contact us to confirm availability and place your order.</p>
+      </div>
+
+      <div class="tools">
+        <input id="search" type="search" placeholder="Search watches and necklaces..." aria-label="Search products">
+      </div>
+      <div class="filters" aria-label="Product categories">
+        <button class="filter active" data-category="All">All pieces</button>
+        <button class="filter" data-category="Watches">Watches</button>
+        <button class="filter" data-category="Necklaces">Necklaces</button>
+      </div>
+      <div id="products" class="grid" aria-live="polite">
+        <div class="empty">Loading the collection…</div>
+      </div>
+    </section>
+
+    <section class="story" id="about">
+      <div class="story-inner">
+        <div class="eyebrow">About Mr P Prestige</div>
+        <h2>Luxury in every detail.</h2>
+        <p>Mr P Prestige brings together watches and necklaces for people who want their accessories to say something special. Browse the collection, ask us questions and order directly with our team.</p>
+        <a class="gold-button" href="https://wa.me/2348081040811?text=Hello%20Mr%20P%20Prestige%2C%20please%20tell%20me%20more%20about%20your%20collection." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand">MR P PRESTIGE<small>LUXURY COLLECTION</small></div>
+    <p>Luxury watches & necklaces for him and her.</p>
+    <p>WhatsApp: +234 808 104 0811</p>
+    <p>© <span id="year"></span> Mr P Prestige. All rights reserved.</p>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/2348081040811?text=Hello%20Mr%20P%20Prestige" target="_blank" rel="noopener" aria-label="Chat with Mr P Prestige on WhatsApp">WhatsApp</a>
+
+  <script>
+    const productsEl = document.getElementById("products");
+    const searchEl = document.getElementById("search");
+    let allProducts = [];
+    let category = "All";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[char]);
+    }
+
+    function money(value) {
+      return new Intl.NumberFormat("en-NG", {
+        style: "currency", currency: "NGN", maximumFractionDigits: 0
+      }).format(Number(value) || 0);
+    }
+
+    function whatsappLink(product) {
+      const message = `Hello Mr P Prestige, I am interested in ${product.name}. Please confirm the price and availability.`;
+      return "https://wa.me/2348081040811?text=" + encodeURIComponent(message);
+    }
+
+    function productCard(product) {
+      const image = product.image_url
+        ? `<img class="product-image" src="${escapeHTML(product.image_url)}" alt="${escapeHTML(product.name)}" loading="lazy" onerror="this.outerHTML='<div class=&quot;image-placeholder&quot;>MR P PRESTIGE</div>'">`
+        : `<div class="image-placeholder">MR P PRESTIGE<br><small>${escapeHTML(product.category)}</small></div>`;
+
+      return `<article class="product">
+        ${image}
+        <div class="product-info">
+          <div class="product-category">${escapeHTML(product.category)}</div>
+          <h3>${escapeHTML(product.name)}</h3>
+          <p>${escapeHTML(product.description || "A refined addition to your collection.")}</p>
+          <div class="price">${money(product.price)}</div>
+          <a class="gold-button" href="${whatsappLink(product)}" target="_blank" rel="noopener">Enquire / Order</a>
+        </div>
+      </article>`;
+    }
+
+    function render() {
+      const term = searchEl.value.trim().toLowerCase();
+      const filtered = allProducts.filter(product => {
+        const matchesCategory = category === "All" ||
+          String(product.category).toLowerCase() === category.toLowerCase() ||
+          (category === "Watches" && String(product.category).toLowerCase().includes("watch")) ||
+          (category === "Necklaces" && String(product.category).toLowerCase().includes("necklace"));
+        const matchesSearch = `${product.name} ${product.description || ""} ${product.category}`
+          .toLowerCase().includes(term);
+        return matchesCategory && matchesSearch;
+      });
+
+      productsEl.innerHTML = filtered.length
+        ? filtered.map(productCard).join("")
+        : '<div class="empty">No products found. Please check back soon or contact us on WhatsApp.</div>';
+    }
+
+    document.querySelectorAll(".filter").forEach(button => {
+      button.addEventListener("click", () => {
+        category = button.dataset.category;
+        document.querySelectorAll(".filter").forEach(item =>
+          item.classList.toggle("active", item === button)
+        );
+        render();
+      });
+    });
+
+    searchEl.addEventListener("input", render);
+
+    async function loadProducts() {
+      try {
+        const response = await fetch("/api/products");
+        if (!response.ok) throw new Error("Product service unavailable");
+        const data = await response.json();
+        allProducts = Array.isArray(data.products) ? data.products : [];
+        render();
+      } catch {
+        productsEl.innerHTML = '<div class="empty">Our collection is being prepared. Please contact us on WhatsApp for current products and prices.</div>';
+      }
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>
