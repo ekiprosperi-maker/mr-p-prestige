@@ -15,10 +15,12 @@
       "database_id": "031b1d6d-4483-4cdf-b211-a1dc4d128159"
     }
   ],
-  "r2_buckets": [
+  
+  "d1_databases": [
     {
-      "binding": "IMAGES",
-      "bucket_name": "mr-p-prestige-images"
+      "binding": "DB",
+      "database_name": "mr-p-prestige-db",
+      "database_id": "031b1d6d-4483-4cdf-b211-a1dc4d128159"
     }
   ]
 }
