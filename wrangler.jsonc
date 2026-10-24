@@ -12,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "mr-p-prestige-db",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+      "database_id": "031b1d6d-4483-4cdf-b211-a1dc4d128159"
     }
   ],
   "r2_buckets": [
