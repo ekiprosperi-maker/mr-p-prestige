@@ -216,7 +216,7 @@ if (
 !Number.isInteger(stock) || stock < 0 ||
 description.length > 2000 ||
 image_url.length > 500 ||
-(image_url && !/^https://[^\s]+$/i.test(image_url))
+(image_url && !/^https:\/\/[^\s]+$/i.test(image_url))
 ) {
 return null;
 }
