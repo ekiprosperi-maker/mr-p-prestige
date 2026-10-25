@@ -12,13 +12,15 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:85px}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
 .announcement{background:var(--ink);color:#f3dfb4;text-align:center;padding:8px;font-size:11px;letter-spacing:1.5px}
 header{position:sticky;top:0;z-index:10;background:#fffdf8;border-bottom:1px solid #e9e0d0}
 .nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{font-family:Georgia,serif;font-size:22px;font-weight:bold;color:#8d682b;line-height:1.25}
 .brand small{display:block;font:9px Arial,sans-serif;letter-spacing:3px;text-align:center;color:#766c5b}
-.navlinks{display:flex;align-items:center;gap:20px;font-size:13px}
+.navlinks{display:flex;align-items:center;gap:18px;font-size:13px}
 .navlinks a:hover{color:var(--gold)}
 .btn{display:inline-block;background:var(--gold);color:white;border:1px solid var(--gold);border-radius:5px;padding:12px 17px;font-weight:bold;text-align:center}
 .btn:hover{background:#98702c}
@@ -36,11 +38,18 @@ header{position:sticky;top:0;z-index:10;background:#fffdf8;border-bottom:1px sol
 .heading{text-align:center;margin-bottom:28px}
 .heading h2,.story h2{font:36px Georgia,serif;margin:7px 0}
 .heading p{color:var(--muted);font-size:13px}
-.tools{display:flex;gap:10px;margin:22px 0}
-.tools input{width:100%;min-width:0;padding:13px 15px;border:1px solid #e2d7c3;background:white;border-radius:6px;outline-color:var(--gold)}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.searchbar{margin:22px 0 14px}
+.searchbar input{width:100%;padding:13px 15px;border:1px solid #e2d7c3;background:white;border-radius:6px;outline-color:var(--gold)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px}
 .filter{padding:8px 15px;border:1px solid #d9cdb7;border-radius:25px;background:white;color:#5e5547;font-size:12px}
 .filter.active,.filter:hover{background:var(--ink);border-color:var(--ink);color:white}
+.price-tools{background:#fffdf8;border:1px solid #e9e0d0;border-radius:9px;padding:15px;margin:0 0 22px}
+.price-tools label{font-size:12px;font-weight:bold;display:block;margin-bottom:5px}
+.price-tools select,.price-tools input{width:100%;min-width:0;padding:11px;border:1px solid #ded3c0;border-radius:5px;background:white;color:var(--ink)}
+.price-controls{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px}
+.price-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.price-actions button{font-size:12px;padding:10px 14px}
+.price-note{font-size:12px;color:var(--muted);margin:10px 0 0}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .product{min-width:0;background:white;border:1px solid #eee5d7;border-radius:9px;overflow:hidden;box-shadow:0 4px 15px #51452b0a}
 .product-image,.placeholder{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#eee7da}
@@ -52,14 +61,12 @@ header{position:sticky;top:0;z-index:10;background:#fffdf8;border-bottom:1px sol
 .price{font-weight:bold;font-size:17px;margin:10px 0 13px}
 .product-actions{display:flex;gap:8px}
 .product-actions .btn{flex:1;padding:10px 7px;font-size:12px}
-.qty{display:flex;align-items:center;gap:12px;margin:10px 0}
-.qty button,.cart-row button{border:1px solid #e0d5c2;background:#fffaf0;border-radius:4px;padding:3px 10px}
 .empty{grid-column:1/-1;text-align:center;padding:35px 15px;color:var(--muted);background:white;border-radius:8px}
 .cart-section{background:#fffdf8;border-top:1px solid #eadfcb;padding:45px 20px}
 .cart-inner{max-width:850px;margin:auto}
 .cart-inner h2{font:32px Georgia,serif}
 .cart-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #eee5d7;padding:13px 0;font-size:13px}
-.cart-row button{margin-left:5px}
+.cart-row button{margin:5px 4px 0 0;border:1px solid #e0d5c2;background:#fffaf0;border-radius:4px;padding:3px 10px}
 .cart-total{display:flex;justify-content:space-between;font-size:19px;font-weight:bold;margin:22px 0}
 .cart-actions{display:flex;gap:10px;flex-wrap:wrap}
 .cart-actions button{flex:1}
@@ -71,11 +78,17 @@ footer .brand{display:inline-block}
 .floating{position:fixed;right:16px;bottom:16px;z-index:20;background:#218c4b;color:white;border-radius:30px;padding:12px 17px;font-weight:bold;box-shadow:0 4px 15px #0002}
 @media(max-width:760px){
 .nav{padding:12px}.brand{font-size:17px}.brand small{font-size:8px;letter-spacing:2px}
-.navlinks{gap:10px;font-size:12px}.navlinks .about-link{display:none}
-.hero{padding:58px 18px}.benefits{gap:6px;padding:20px 8px}.benefit{font-size:10px}.benefit strong{font-size:14px}
-.shop{padding:40px 12px 55px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.product-info{padding:10px}.product h3{font-size:17px}.description{font-size:11px;min-height:50px}
-.product-actions{flex-direction:column;gap:6px}.product-actions .btn{width:100%;font-size:11px;padding:10px 4px}
+.navlinks{gap:9px;font-size:11px}.navlinks .about-link{display:none}
+.hero{padding:58px 18px}
+.benefits{gap:6px;padding:20px 8px}.benefit{font-size:10px}.benefit strong{font-size:14px}
+.shop{padding:40px 12px 55px}
+.price-controls{grid-template-columns:1fr 1fr}
+.price-controls .sort-field{grid-column:1/-1}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.product-info{padding:10px}.product h3{font-size:17px}
+.description{font-size:11px;min-height:50px}
+.product-actions{flex-direction:column;gap:6px}
+.product-actions .btn{width:100%;font-size:11px;padding:10px 4px}
 .heading h2,.story h2{font-size:29px}.price{font-size:15px}
 }
 </style>
@@ -86,7 +99,8 @@ footer .brand{display:inline-block}
 <nav class="nav">
 <a class="brand" href="#">MR P PRESTIGE<small>LUXURY COLLECTION</small></a>
 <div class="navlinks">
-<a href="#">Home</a><a href="#shop">Shop</a><a class="about-link" href="#about">Our Story</a>
+<a href="#">Home</a><a href="#shop">Shop</a>
+<a class="about-link" href="#about">Our Story</a>
 <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
 </div>
 </nav>
@@ -115,15 +129,50 @@ footer .brand{display:inline-block}
 <div class="heading">
 <div class="eyebrow">Made for your style</div>
 <h2>Explore Our Collection</h2>
-<p>Choose your favourites, add them to your cart and order directly through WhatsApp.</p>
+<p>Search, compare prices, add your favourites to your cart and order on WhatsApp.</p>
 </div>
-<div class="tools"><input id="search" type="search" placeholder="Search watches and necklaces..." aria-label="Search products"></div>
-<div class="filters">
-<button class="filter active" data-category="All">All Pieces</button>
-<button class="filter" data-category="Watches">Watches</button>
-<button class="filter" data-category="Necklaces">Necklaces</button>
+
+<div class="searchbar">
+<input id="search" type="search" placeholder="Search watches and necklaces..." aria-label="Search products">
 </div>
-<div class="grid" id="products" aria-live="polite"><div class="empty">Loading our collection…</div></div>
+
+<div class="filters" aria-label="Product categories">
+<button type="button" class="filter active" data-category="All">All Pieces</button>
+<button type="button" class="filter" data-category="Watches">Watches</button>
+<button type="button" class="filter" data-category="Necklaces">Necklaces</button>
+</div>
+
+<div class="price-tools">
+<strong>Find products within your budget</strong>
+<div class="price-controls" style="margin-top:12px">
+<div class="sort-field">
+<label for="sort-price">Sort products</label>
+<select id="sort-price">
+<option value="default">Recommended</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+<option value="average">Price: Around Average</option>
+</select>
+</div>
+<div>
+<label for="min-price">Minimum price (₦)</label>
+<input id="min-price" type="number" min="0" step="1" placeholder="e.g. 20000">
+</div>
+<div>
+<label for="max-price">Maximum price (₦)</label>
+<input id="max-price" type="number" min="0" step="1" placeholder="e.g. 100000">
+</div>
+</div>
+<div class="price-actions">
+<button class="btn" type="button" id="apply-price">Apply Price Range</button>
+<button class="btn btn-light" type="button" id="reset-price">Reset Filters</button>
+</div>
+<p class="price-note" id="price-summary" aria-live="polite">Showing available products.</p>
+</div>
+
+<div class="grid" id="products" aria-live="polite">
+<div class="empty">Loading our collection…</div>
+</div>
 </section>
 
 <section class="cart-section" id="cart">
@@ -133,8 +182,8 @@ footer .brand{display:inline-block}
 <div id="cart-items"><p>Your cart is empty. Explore our collection to add something you love.</p></div>
 <div class="cart-total"><span>Total</span><span id="cart-total">₦0</span></div>
 <div class="cart-actions">
-<button class="btn" id="checkout">Order on WhatsApp</button>
-<button class="btn btn-light" id="clear-cart">Clear Cart</button>
+<button class="btn" id="checkout" type="button">Order on WhatsApp</button>
+<button class="btn btn-light" id="clear-cart" type="button">Clear Cart</button>
 </div>
 <p style="font-size:12px;color:#777064">Prices and availability will be confirmed with you on WhatsApp.</p>
 </div>
@@ -161,9 +210,16 @@ footer .brand{display:inline-block}
 <script>
 const productsEl=document.getElementById("products");
 const searchEl=document.getElementById("search");
+const sortEl=document.getElementById("sort-price");
+const minEl=document.getElementById("min-price");
+const maxEl=document.getElementById("max-price");
+const summaryEl=document.getElementById("price-summary");
 let allProducts=[];
 let category="All";
+let appliedMin=null;
+let appliedMax=null;
 const cart=new Map();
+
 document.getElementById("year").textContent=new Date().getFullYear();
 
 function esc(value){
@@ -184,40 +240,67 @@ const image=product.image_url
 :`<div class="placeholder">MR P PRESTIGE<br><small>${esc(product.category)}</small></div>`;
 const inCart=cart.get(id)?.qty||0;
 return `<article class="product">${image}<div class="product-info">
-<div class="category">${esc(product.category)}</div><h3>${esc(product.name)}</h3>
+<div class="category">${esc(product.category)}</div>
+<h3>${esc(product.name)}</h3>
 <p class="description">${esc(product.description||"A refined addition to your collection.")}</p>
 <div class="price">${money(product.price)}</div>
 <div class="product-actions">
-<button class="btn add" data-id="${esc(id)}">${inCart?"Add Another":"Add to Cart"}</button>
+<button class="btn add" type="button" data-id="${esc(id)}">${inCart?"Add Another":"Add to Cart"}</button>
 <a class="btn btn-light" href="${waLink(product)}" target="_blank" rel="noopener">Enquire</a>
 </div></div></article>`;
 }
 function render(){
 const term=searchEl.value.trim().toLowerCase();
-const filtered=allProducts.filter(p=>{
+let filtered=allProducts.filter(p=>{
 const cat=String(p.category||"").toLowerCase();
 const matchesCategory=category==="All"||cat===category.toLowerCase()||(category==="Watches"&&cat.includes("watch"))||(category==="Necklaces"&&cat.includes("necklace"));
-return matchesCategory&&`${p.name} ${p.description||""} ${p.category}`.toLowerCase().includes(term);
+const matchesSearch=`${p.name} ${p.description||""} ${p.category}`.toLowerCase().includes(term);
+const price=Number(p.price)||0;
+const matchesMin=appliedMin===null||price>=appliedMin;
+const matchesMax=appliedMax===null||price<=appliedMax;
+return matchesCategory&&matchesSearch&&matchesMin&&matchesMax;
 });
-productsEl.innerHTML=filtered.length?filtered.map(productCard).join(""):'<div class="empty">No products found. Contact us on WhatsApp for assistance.</div>';
+
+const average=filtered.length?filtered.reduce((sum,p)=>sum+(Number(p.price)||0),0)/filtered.length:0;
+
+if(sortEl.value==="low"){
+filtered.sort((a,b)=>(Number(a.price)||0)-(Number(b.price)||0));
+}else if(sortEl.value==="high"){
+filtered.sort((a,b)=>(Number(b.price)||0)-(Number(a.price)||0));
+}else if(sortEl.value==="average"){
+filtered.sort((a,b)=>Math.abs((Number(a.price)||0)-average)-Math.abs((Number(b.price)||0)-average));
+}
+
+productsEl.innerHTML=filtered.length?filtered.map(productCard).join(""):'<div class="empty">No products match your search or price range. Try changing the filters or contact us on WhatsApp.</div>';
+
+if(!allProducts.length){
+summaryEl.textContent="No products are currently available to display.";
+}else if(!filtered.length){
+summaryEl.textContent="No matching products. Try a wider price range.";
+}else{
+const prices=filtered.map(p=>Number(p.price)||0);
+summaryEl.textContent=`Showing ${filtered.length} product(s). Lowest: ${money(Math.min(...prices))} · Highest: ${money(Math.max(...prices))}${sortEl.value==="average"?" · Closest to average price first":""}`;
+}
 }
 function renderCart(){
 let count=0,total=0,rows=[];
 for(const [id,item] of cart){
 count+=item.qty;
-total+=(Number(item.product.price)||0)*item.qty;
+const subtotal=(Number(item.product.price)||0)*item.qty;
+total+=subtotal;
 rows.push(`<div class="cart-row"><div><strong>${esc(item.product.name)}</strong><br>${money(item.product.price)} each<br>
-<button data-action="minus" data-id="${esc(id)}" aria-label="Remove one">−</button>
+<button type="button" data-action="minus" data-id="${esc(id)}" aria-label="Remove one">−</button>
 ${item.qty}
-<button data-action="plus" data-id="${esc(id)}" aria-label="Add one">+</button>
-<button data-action="remove" data-id="${esc(id)}">Remove</button></div>
-<strong>${money((Number(item.product.price)||0)*item.qty)}</strong></div>`);
+<button type="button" data-action="plus" data-id="${esc(id)}" aria-label="Add one">+</button>
+<button type="button" data-action="remove" data-id="${esc(id)}">Remove</button>
+</div><strong>${money(subtotal)}</strong></div>`);
 }
 document.getElementById("cart-count").textContent=count;
 document.getElementById("cart-count-2").textContent=count;
 document.getElementById("cart-total").textContent=money(total);
 document.getElementById("cart-items").innerHTML=rows.length?rows.join(""):"<p>Your cart is empty. Explore our collection to add something you love.</p>";
 }
+
 productsEl.addEventListener("click",e=>{
 const button=e.target.closest(".add");
 if(!button)return;
@@ -226,8 +309,10 @@ if(!product)return;
 const id=key(product);
 const item=cart.get(id);
 cart.set(id,{product,qty:(item?.qty||0)+1});
-render();renderCart();
+render();
+renderCart();
 });
+
 document.getElementById("cart-items").addEventListener("click",e=>{
 const button=e.target.closest("button[data-action]");
 if(!button)return;
@@ -237,8 +322,10 @@ if(button.dataset.action==="plus")item.qty++;
 if(button.dataset.action==="minus")item.qty--;
 if(button.dataset.action==="remove"||item.qty<=0)cart.delete(id);
 else cart.set(id,item);
-render();renderCart();
+render();
+renderCart();
 });
+
 document.getElementById("checkout").addEventListener("click",()=>{
 if(!cart.size){alert("Your cart is empty. Please add a product first.");return;}
 let total=0;
@@ -249,15 +336,55 @@ total+=subtotal;
 lines.push(`${item.qty} x ${item.product.name} — ${money(subtotal)}`);
 }
 lines.push(`Total: ${money(total)}`,"Please confirm availability and delivery details.");
-window.open("https://wa.me/2348081040811?text="+encodeURIComponent(lines.join("\n")),"_blank","noopener");
+window.open("https://wa.me/2348081040811?text="+encodeURIComponent(lines.join("\n")),"_blank");
 });
-document.getElementById("clear-cart").addEventListener("click",()=>{cart.clear();render();renderCart();});
+
+document.getElementById("clear-cart").addEventListener("click",()=>{
+cart.clear();
+render();
+renderCart();
+});
+
 document.querySelectorAll(".filter").forEach(button=>button.addEventListener("click",()=>{
 category=button.dataset.category;
 document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===button));
 render();
 }));
+
 searchEl.addEventListener("input",render);
+sortEl.addEventListener("change",render);
+
+document.getElementById("apply-price").addEventListener("click",()=>{
+const minText=minEl.value.trim();
+const maxText=maxEl.value.trim();
+const min=minText===""?null:Number(minText);
+const max=maxText===""?null:Number(maxText);
+
+if((min!==null&&(!Number.isFinite(min)||min<0))||(max!==null&&(!Number.isFinite(max)||max<0))){
+alert("Please enter valid non-negative prices.");
+return;
+}
+if(min!==null&&max!==null&&min>max){
+alert("Minimum price cannot be higher than maximum price.");
+return;
+}
+appliedMin=min;
+appliedMax=max;
+render();
+});
+
+document.getElementById("reset-price").addEventListener("click",()=>{
+minEl.value="";
+maxEl.value="";
+appliedMin=null;
+appliedMax=null;
+category="All";
+searchEl.value="";
+sortEl.value="default";
+document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.dataset.category==="All"));
+render();
+});
+
 async function loadProducts(){
 try{
 const response=await fetch("/api/products");
@@ -267,6 +394,7 @@ allProducts=Array.isArray(data.products)?data.products:[];
 render();
 }catch{
 productsEl.innerHTML='<div class="empty">Our collection is being prepared. Please contact us on WhatsApp for current products and prices.</div>';
+summaryEl.textContent="Products could not be loaded. Please try again later.";
 }
 }
 renderCart();
