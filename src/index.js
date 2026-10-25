@@ -240,8 +240,8 @@ new TextEncoder().encode(value)
 );
 
 return btoa(String.fromCharCode(...new Uint8Array(signature)))
-.replace(/+/g, "-")
-.replace(///g, "_")
+.replace(/\+/g, "-")
+.replace(/\//g, "_")
 .replace(/=+$/g, "");
 }
 
@@ -250,7 +250,7 @@ if (!env.SESSION_SECRET) return false;
 
 const cookie = request.headers.get("Cookie") || "";
 const match = cookie.match(
-new RegExp("(?:^|;\\s*)${COOKIE_NAME}=([0-9]+)\\.([A-Za-z0-9_-]+)")
+new RegExp(`(?:^|;\\s*)${COOKIE_NAME}=([0-9]+)\\.([A-Za-z0-9_-]+)`)
 );
 
 if (!match) return false;
